@@ -11,18 +11,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import dz.akram.bensalem.edvorarideapp.data.Ride
 import dz.akram.bensalem.edvorarideapp.ui.theme.Dimens
 
 @Composable
 fun PlaceRow(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    item : Ride
 ) {
     Row(
         modifier = modifier
     ) {
-        CustomChip(title = "City")
+        CustomChip(title = item.city)
         Spacer(modifier = Modifier.weight(1f))
-        CustomChip(title = "State")
+        CustomChip(title = item.state)
     }
 }
 
@@ -52,7 +54,7 @@ fun CustomChip(
                 vertical = Dimens.ElevationPadding.size
             ),
             fontWeight = FontWeight(500),
-            fontSize = 12.sp,
+            fontSize = 14.sp,
             lineHeight = 14.sp,
         )
     }

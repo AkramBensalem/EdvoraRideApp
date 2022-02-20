@@ -14,13 +14,13 @@ import androidx.compose.ui.unit.dp
 import dz.akram.bensalem.edvorarideapp.data.Ride
 import dz.akram.bensalem.edvorarideapp.R
 import dz.akram.bensalem.edvorarideapp.ui.theme.Dimens
-import dz.akram.bensalem.edvorarideapp.ui.theme.Shapes
 
 
 @Composable
 fun RideItem(
     modifier: Modifier = Modifier,
-    item : Ride
+    item : Ride,
+    currentStationCode : Int,
 ){
 
     Card(
@@ -49,13 +49,15 @@ fun RideItem(
 
             PlaceRow(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .fillMaxWidth(),
+                item = item
             )
 
 
             RideItemDescription(
                 modifier = Modifier.fillMaxWidth(),
-                item = item
+                item = item,
+                currentStationCode = currentStationCode
             )
         }
 

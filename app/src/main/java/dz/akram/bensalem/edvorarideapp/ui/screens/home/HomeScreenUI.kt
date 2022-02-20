@@ -14,8 +14,8 @@ import dz.akram.bensalem.edvorarideapp.ui.components.homescreen.MainRidesList
 fun HomeScreenUI(
     modifier: Modifier = Modifier
 ) {
-    val profile = User(
-        stationCode = 44,
+    val user = User(
+        stationCode = 40,
         name = "Akram Bensalem",
         profileKey = "https://picsum.photos/536/355"
     )
@@ -26,11 +26,13 @@ fun HomeScreenUI(
             .background(MaterialTheme.colors.surface)
             .navigationBarsPadding(),
         topBar = {
-            CustomAppBar(profile = profile)
+            CustomAppBar(profile = user)
         }
     ) {
 
-        MainRidesList()
+        MainRidesList(
+            stationCode = user.stationCode
+        )
 
     }
 }

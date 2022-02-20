@@ -127,8 +127,7 @@ dependencies {
     // lyricist is internationalization/localization library for Jetpack Compose!
     // support (English, French, Hindu, Arabic ...etc)
     implementation("cafe.adriel.lyricist:lyricist:1.0.1")
-    compileOnly("cafe.adriel.lyricist:lyricist-processor:1.0.1")
-    ksp("cafe.adriel.lyricist:lyricist-processor:1.0.1")
+
 
 
 
