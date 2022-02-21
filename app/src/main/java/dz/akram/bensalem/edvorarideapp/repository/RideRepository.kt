@@ -41,10 +41,10 @@ class RideRepository @Inject constructor(
     ) : List<Ride> =
         if ((state.isEmpty() || state.lowercase() == "all states") && (city.isEmpty() || city.lowercase() == "all cities") )  getRideList(optionState) // get All List
         else if (state.isEmpty() || state.lowercase() == "all states")  getRideList(optionState).filter { // city empty and state is not
-            it.state == state
-        }
-        else if (city.isEmpty() || city.lowercase() == "all cities")  getRideList(optionState).filter { // state empty and city is not
             it.city == city
+        }
+        else if (city.isEmpty() || city.lowercase() == "all cities")  getRideList(optionState).filter { // city empty and state is not
+            it.state == state
         }
         else getRideList(optionState).filter { // state is not empty and city is not empty
             it.state == state && it.city == city
