@@ -1,6 +1,7 @@
 package dz.akram.bensalem.edvorarideapp.utils.internationalization
 
 import androidx.compose.runtime.staticCompositionLocalOf
+import dz.akram.bensalem.edvorarideapp.ui.components.homescreen.OptionsBarState
 
 
 /**
@@ -20,7 +21,10 @@ val LocalStrings = staticCompositionLocalOf { EnStrings }
 
 data class Strings(
     val appName: String,
-    val profileIcon: String
+    val profileIcon: String,
+
+    val option: (state: OptionsBarState) -> String,
+
 )
 
 

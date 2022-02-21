@@ -8,63 +8,50 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dz.akram.bensalem.edvorarideapp.data.Ride
 import dz.akram.bensalem.edvorarideapp.data.User
 import dz.akram.bensalem.edvorarideapp.ui.theme.Dimens
+import dz.akram.bensalem.edvorarideapp.utils.time.TimeConverter
 
 @Composable
 fun MainRidesList(
     modifier: Modifier = Modifier,
-    stationCode : Int
+    stationCode : Int,
+    upcomingNmbr : Int,
+    pastNmbr: Int,
+    list : List<Ride>,
+    statesList : List<String>,
+    citiesList : List<String>,
+    optionState : OptionsBarState,
+    onOptionBarClicked : (OptionsBarState) -> Unit,
+    onFilterClicked : (String, String) -> Unit
 ){
-
-
-   val list = listOf<Ride>(
-       Ride(
-           id = 2,
-           origin_station_code = 20,
-           station_path = listOf(20, 39, 40, 42, 54, 63, 72, 88, 98),
-           destination_station_code = 98,
-           date = 1644924365,
-           map_url = "url",
-           state = "Maharashtra",
-           city = "Panvel"
-       ),
-       Ride(
-           id = 12,
-           origin_station_code = 13,
-           station_path = listOf(22),
-           destination_station_code = 34,
-           date = 234567,
-           map_url = "url",
-           state = "State2",
-           city = "City1"
-       ),
-       Ride(
-           id = 12,
-           origin_station_code = 13,
-           station_path = listOf(22),
-           destination_station_code = 34,
-           date = 234567,
-           map_url = "url",
-           state = "State3",
-           city = "City1"
-       )
-   )
 
 
     LazyColumn(
         modifier = modifier
+            .fillMaxSize()
             .background(MaterialTheme.colors.surface),
-        contentPadding = PaddingValues(
-            horizontal = Dimens.UpperMediumPadding.size,
-            vertical = 8.dp
-        )
+        contentPadding = PaddingValues(horizontal = Dimens.UpperMediumPadding.size)
     ){
 
+        item {
+            OptionsBar(
+                modifier = Modifier.fillMaxWidth(),
+                state = optionState,
+                statesList = statesList,
+                citiesList = citiesList,
+                upcomingListSize =upcomingNmbr,
+                pastSize = pastNmbr,
+                onOptionClick = {
+                    onOptionBarClicked(it)
+                },
+                onFilterClicked = onFilterClicked,
+            )
+        }
        items(list){item ->
 
         RideItem(
