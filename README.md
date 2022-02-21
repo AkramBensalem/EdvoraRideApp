@@ -2,6 +2,7 @@
 Edvora Ride App
 
 "Test App" for interview of Intership postion at Edvora.
+Scallable for supporting Internationalization and localization (Languages/resources)
 
 ## UI:
 
@@ -16,6 +17,7 @@ It simplifies and accelerates UI development on Android. Quickly bring your app 
 
 ### Other Libryires
 ```
+`Dependency Injection`: Hilt - Dagger
 SplashScreen Core for smooth startup
 Couroutines and Flow
 ```
