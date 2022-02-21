@@ -1,7 +1,7 @@
 # EdvoraRideApp
 Edvora Ride App
 
-"Test App" to interview of Intership postion at Edvora.
+"Test App" for interview of Intership postion at Edvora.
 
 ## UI:
 
